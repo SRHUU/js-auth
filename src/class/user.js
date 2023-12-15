@@ -6,11 +6,22 @@ class User {
   }
 
   static #list = []
+  //__________________Для token_________________
+  static #count = 1
+  // ___________________________________________
 
   constructor({ email, password, role }) {
+    //__________________Для token_________________
+    this.id = User.#count++
+    // ___________________________________________
+
     this.email = String(email).toLowerCase()
-    this.password = password
+    this.password = String(password)
     this.role = User.#convertRole(role)
+
+    //__________________Для token_________________
+    this.isConfirm = false
+    // ___________________________________________
   }
 
   static #convertRole = (role) => {
@@ -32,6 +43,9 @@ class User {
     this.#list.push(user)
 
     console.log(this.#list)
+    //__________________Для token_________________
+    return user
+    // ___________________________________________
   }
 
   // --------------функціонал реєстрації та відновлення-----------------
