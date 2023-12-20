@@ -58,6 +58,17 @@ class User {
       ) || null
     )
   }
+  // ---------функціонал відображення інфи про користувача-----------
+
+  static getById(id) {
+    return (
+      this.#list.find((user) => user.id === Number(id)) ||
+      null
+    )
+  }
+  // -----------функціонал повернення списку користувачів------------
+
+  static getList = () => this.#list
 }
 
 module.exports = {
